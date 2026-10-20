@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  min-height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -14,7 +16,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 25px;
+  height: 60px;
+  padding: 0 25px;
 }
 
 .logo,
@@ -48,4 +51,97 @@ body {
 
 .admin-button button:hover {
   background-color: rgb(219, 219, 219);
+}
+
+/* sidebar */
+.sidebar {
+  width: 250px;
+  min-height: calc(100vh - 60px);
+  padding: 15px;
+  background-color: #152227;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 35px;
+}
+
+.sidebar-content {
+  width: 100%;
+}
+
+.sidebar h2 {
+  margin-top: 10px;
+  color: white;
+  font-size: 1.5em;
+  margin-left: 5px;
+}
+
+.sidebar-nav {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sidebar-nav a {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.sidebar-nav a:hover {
+  background-color: #2d4652;
+}
+
+.sidebar-nav a:focus {
+  background-color: #3e6272;
+}
+
+.conta-admin {
+  cursor: pointer;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.conta-admin:hover {
+  background-color: #2d4652;
+}
+
+.conta-perfil {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.sua-conta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sua-conta h2 {
+  font-size: 1em;
+}
+
+.sua-conta p {
+  margin-left: 5px;
+  color: rgb(133, 132, 132);
 }
