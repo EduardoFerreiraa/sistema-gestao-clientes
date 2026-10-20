@@ -54,6 +54,10 @@ body {
 }
 
 /* sidebar */
+.layout {
+  display: flex;
+}
+
 .sidebar {
   width: 250px;
   min-height: calc(100vh - 60px);
@@ -144,4 +148,52 @@ body {
 .sua-conta p {
   margin-left: 5px;
   color: rgb(133, 132, 132);
+}
+
+/* main */
+.main {
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+  padding: 25px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.content-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#title {
+  font-size: 2em;
+}
+
+#subtitle {
+  margin-top: 10px;
+  color: gray;
+}
+
+.novo-cliente {
+  display: flex;
+  gap: 15px;
+}
+
+.novo-cliente button {
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid rgb(201, 201, 201);
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 25px;
+  font-weight: bolder;
+}
+
+#btn-novo {
+  color: white;
+  border: none;
+  background-color: #0f8580;
 }
