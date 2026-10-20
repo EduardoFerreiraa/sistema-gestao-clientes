@@ -63,7 +63,7 @@
                 id="filter-search"
                 placeholder="Buscar por nome, e-mail e telefone"
               />
-              <select id="options">
+              <select class="options">
                 <option value="ativo">Ativo</option>
                 <option value="inativo">Inativo</option>
                 <option value="pendente">Pendente</option>
@@ -97,7 +97,7 @@
                   <td>eduardoferreira@gmail.com</td>
                   <td>Uberlândia</td>
                   <td>(34) 99999-9999</td>
-                  <td>Pendete</td>
+                  <td>Pendente</td>
                   <td class="status-pendete">...</td>
                 </tr>
 
@@ -119,7 +119,71 @@
 
             <form id="formulario">
               <label for="nome">Nome completo</label>
-              <input type="text" placeholder="Ex: Ana Beatriz Souza" />
+              <input
+                type="text"
+                id="nomeInput"
+                placeholder="Ex: Ana Beatriz Souza"
+              />
+
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                name="email"
+                id="emailInput"
+                placeholder="nome@empresa.com.br"
+              />
+
+              <div class="labels">
+                <div class="tel">
+                  <label for="telefone">Telefone</label>
+                  <input
+                    type="tel"
+                    name="telefone"
+                    id="telefoneInput"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+
+                <div class="cpf">
+                  <label for="cpf">CPF / CNPJ</label>
+                  <input
+                    type="text"
+                    name="cpf"
+                    id="cpfInput"
+                    placeholder="000.000.000-00"
+                  />
+                </div>
+              </div>
+
+              <div class="labels">
+                <div class="cidade">
+                  <label for="cidade">Cidade</label>
+                  <input
+                    type="text"
+                    name="cidade"
+                    id="cidadeInput"
+                    placeholder="Cidade"
+                  />
+                </div>
+
+                <div class="status">
+                  <label for="status">Status</label>
+                  <select class="options-status">
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                    <option value="pendente">Pendente</option>
+                  </select>
+                </div>
+              </div>
+
+              <label for="observacoes">Observacoes:</label>
+              <textarea
+                name="observacoes"
+                id="observacoesInput"
+                rows="10"
+                placeholder="Anotações internas sobre o cliente"
+              >
+              </textarea>
             </form>
           </div>
         </div>
