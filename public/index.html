@@ -54,6 +54,75 @@
             <button id="btn-novo">+ Novo cliente</button>
           </div>
         </div>
+
+        <div class="content-clientes">
+          <div class="layout-table">
+            <div id="content-filter">
+              <input
+                type="search"
+                id="filter-search"
+                placeholder="Buscar por nome, e-mail e telefone"
+              />
+              <select id="options">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+                <option value="pendente">Pendente</option>
+              </select>
+            </div>
+
+            <table class="table">
+              <thead class="thead">
+                <tr class="tr">
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Cidade</th>
+                  <th>Telefone</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+
+              <tbody class="tbody">
+                <tr class="tr">
+                  <td>Eduardo</td>
+                  <td>eduardoferreira@gmail.com</td>
+                  <td>Uberlândia</td>
+                  <td>(34) 99999-9999</td>
+                  <td class="status-ativo">Ativo</td>
+                  <td>...</td>
+                </tr>
+
+                <tr class="tr">
+                  <td>Eduardo</td>
+                  <td>eduardoferreira@gmail.com</td>
+                  <td>Uberlândia</td>
+                  <td>(34) 99999-9999</td>
+                  <td>Pendete</td>
+                  <td class="status-pendete">...</td>
+                </tr>
+
+                <tr class="tr">
+                  <td>Eduardo</td>
+                  <td>eduardoferreira@gmail.com</td>
+                  <td>Uberlândia</td>
+                  <td>(34) 99999-9999</td>
+                  <td>Inativo</td>
+                  <td class="status-inativo">...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="layout-cliente">
+            <h2>Novo cliente</h2>
+            <p>Ao clicar em editar, este painel carrega os dados do cliente.</p>
+
+            <form id="formulario">
+              <label for="nome">Nome completo</label>
+              <input type="text" placeholder="Ex: Ana Beatriz Souza" />
+            </form>
+          </div>
+        </div>
       </main>
     </div>
 

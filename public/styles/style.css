@@ -190,6 +190,11 @@ body {
   border-radius: 10px;
   padding: 15px 25px;
   font-weight: bolder;
+  transition: all 0.25s ease;
+}
+
+.novo-cliente button:hover {
+  background-color: rgb(235, 235, 235);
 }
 
 #btn-novo {
@@ -197,3 +202,96 @@ body {
   border: none;
   background-color: #0f8580;
 }
+
+#btn-novo:hover {
+  background-color: #13a19a;
+}
+
+/* tabela e novo cliente */
+
+.content-clientes {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.layout-table {
+  width: 100%;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  background-color: #fafafa;
+}
+
+#content-filter {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 15px;
+}
+
+#filter-search {
+  font-size: 15px;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  transition: all 0.25s ease;
+}
+
+#filter-search:focus {
+  border: 1px solid #9c9c9c;
+}
+
+#options {
+  width: 200px;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+}
+
+/* Tabela */
+.table {
+  width: 100%;
+  margin-top: 25px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.thead {
+  background-color: rgba(230, 230, 230, 0.507);
+  border-top: 1px solid rgb(201, 201, 201);
+  border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.thead th {
+  padding: 10px 16px;
+  text-transform: uppercase;
+  color: rgb(100, 100, 100);
+  font-size: 14px;
+  text-align: left;
+}
+
+.tbody td {
+  padding: 16px;
+  color: rgb(40, 40, 40);
+  font-size: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 
+.ativo {
+  background-color: #dcfce7;
+}
+
+.pendente {
+
+}
+
+.inativo {
+
+}
+*/
