@@ -443,4 +443,15 @@ textarea:focus {
   box-shadow: 1px 1px 1px 5px #00797946;
 }
 
+small {
+  display: block;
+}
 
+.erro {
+  margin-top: 5px;
+  color: red;
+}
+
+#formulario input.erro-input {
+  border: 1px solid red;
+}

@@ -9,11 +9,11 @@
   <body>
     <header class="header">
       <div class="logo">
-        <img src="#" alt="Logo" />
+        <img src="#" alt="" />
         <h1>Gestão de Clientes</h1>
       </div>
       <div class="admin-button">
-        <img src="#" alt="Logo" />
+        <img src="#" alt="" />
         <button>Administrador <span>⌄</span></button>
       </div>
     </header>
@@ -75,41 +75,17 @@
                 <tr class="tr">
                   <th>Nome</th>
                   <th>E-mail</th>
-                  <th>Cidade</th>
                   <th>Telefone</th>
+                  <th>CPF</th>
+                  <th>Empresa</th>
+                  <th>Cidade</th>
                   <th>Status</th>
+                  <th>Observações</th>
                   <th>Ações</th>
                 </tr>
               </thead>
 
-              <tbody class="tbody">
-                <tr class="tr">
-                  <td>Eduardo</td>
-                  <td>eduardoferreira@gmail.com</td>
-                  <td>Uberlândia</td>
-                  <td>(34) 99999-9999</td>
-                  <td class="status-ativo">Ativo</td>
-                  <td>...</td>
-                </tr>
-
-                <tr class="tr">
-                  <td>Eduardo</td>
-                  <td>eduardoferreira@gmail.com</td>
-                  <td>Uberlândia</td>
-                  <td>(34) 99999-9999</td>
-                  <td>Pendente</td>
-                  <td class="status-pendete">...</td>
-                </tr>
-
-                <tr class="tr">
-                  <td>Eduardo</td>
-                  <td>eduardoferreira@gmail.com</td>
-                  <td>Uberlândia</td>
-                  <td>(34) 99999-9999</td>
-                  <td>Inativo</td>
-                  <td class="status-inativo">...</td>
-                </tr>
-              </tbody>
+              <tbody class="tbody" id="lista-clientes"></tbody>
             </table>
           </div>
 
@@ -124,6 +100,7 @@
                 id="nomeInput"
                 placeholder="Ex: Ana Beatriz Souza"
               />
+              <small id="erro-nome" class="erro"></small>
 
               <label for="email">E-mail</label>
               <input
@@ -132,6 +109,7 @@
                 id="emailInput"
                 placeholder="nome@empresa.com.br"
               />
+              <small id="erro-email" class="erro"></small>
 
               <div class="labels">
                 <div class="tel">
@@ -142,6 +120,7 @@
                     id="telefoneInput"
                     placeholder="(00) 00000-0000"
                   />
+                  <small id="erro-telefone" class="erro"></small>
                 </div>
 
                 <div class="cpf">
@@ -152,6 +131,7 @@
                     id="cpfInput"
                     placeholder="000.000.000-00"
                   />
+                  <small id="erro-cpf" class="erro"></small>
                 </div>
               </div>
 
@@ -172,6 +152,7 @@
                     id="cidadeInput"
                     placeholder="Cidade"
                   />
+                  <small id="erro-cidade" class="erro"></small>
                 </div>
 
                 <div class="status">
@@ -188,7 +169,7 @@
               <textarea
                 name="observacoes"
                 id="observacoesInput"
-                rows="5"
+                rows="3"
                 placeholder="Anotações internas sobre o cliente"
               >
               </textarea>
