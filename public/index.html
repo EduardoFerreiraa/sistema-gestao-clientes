@@ -155,6 +155,14 @@
                 </div>
               </div>
 
+              <label for="empresa">Empresa</label>
+              <input
+                type="text"
+                name="empresa"
+                id="empresaInput"
+                placeholder="Nome da empresa (opcional)"
+              />
+
               <div class="labels">
                 <div class="cidade">
                   <label for="cidade">Cidade</label>
@@ -180,10 +188,15 @@
               <textarea
                 name="observacoes"
                 id="observacoesInput"
-                rows="10"
+                rows="5"
                 placeholder="Anotações internas sobre o cliente"
               >
               </textarea>
+
+              <div class="btn-form">
+                <button id="btn-cancelar">Cancelar</button>
+                <button id="btn-salvar" type="submit">Salvar cliente</button>
+              </div>
             </form>
           </div>
         </div>
