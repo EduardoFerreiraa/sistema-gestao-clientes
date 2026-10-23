@@ -205,17 +205,19 @@ body {
 }
 
 .novo-cliente button:hover {
-  background-color: rgb(235, 235, 235);
+  transform: translateY(-3px);
+  border: 1px solid #838383;
+  box-shadow: 1px 1px 1px 5px #cfcfcf46;
 }
 
 #btn-novo {
   color: white;
   border: none;
-  background-color: #0f8580;
+  background-color: #008f8c;
 }
 
 #btn-novo:hover {
-  background-color: #13a19a;
+  box-shadow: 1px 1px 1px 5px #00797946;
 }
 
 /* tabela e novo cliente */
@@ -253,6 +255,10 @@ body {
   transition: all 0.25s ease;
 }
 
+#filter-search:hover {
+  border: 1px solid #838383;
+}
+
 #filter-search:focus {
   box-shadow: 1px 1px 1px 5px #cfcfcf46;
   border: 1px solid #838383;
@@ -264,6 +270,15 @@ body {
   background-color: #fafafa;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.options:hover {
+  border: 1px solid #838383;
+}
+
+.options:focus {
+  box-shadow: 1px 1px 1px 5px #cfcfcf46;
 }
 
 /* Tabela */
@@ -297,20 +312,6 @@ body {
   font-size: 15px;
   border-bottom: 1px solid #e5e7eb;
 }
-
-/* 
-.ativo {
-  background-color: #dcfce7;
-}
-
-.pendente {
-
-}
-
-.inativo {
-
-}
-*/
 
 .layout-cliente {
   display: flex;
@@ -360,6 +361,10 @@ body {
   transition: all 0.2s ease;
 }
 
+#formulario input:hover {
+  border: 1px solid #838383;
+}
+
 #formulario input:focus {
   box-shadow: 1px 1px 1px 5px #cfcfcf46;
   border: 1px solid #838383;
@@ -393,6 +398,15 @@ body {
 
 .options-status {
   margin-top: 10px;
+  transition: all 0.25s ease;
+}
+
+.options-status:hover {
+  border: 1px solid #838383;
+}
+
+.options-status:focus {
+  box-shadow: 1px 1px 1px 5px #cfcfcf46;
 }
 
 textarea {
@@ -406,6 +420,10 @@ textarea {
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   transition: all 0.2s ease;
+}
+
+textarea:hover {
+  border: 1px solid #838383;
 }
 
 textarea:focus {
