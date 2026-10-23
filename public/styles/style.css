@@ -102,11 +102,14 @@ body {
   font-weight: 500;
   text-decoration: none;
   color: white;
+  border: 1px solid transparent;
   transition: all 0.25s ease;
 }
 
 .sidebar-nav a:hover {
-  background-color: #2d4652;
+  border: 1px solid #395969;
+  box-shadow: 1px 1px 1px 5px #24384265;
+  transform: translateY(-3px);
 }
 
 .sidebar-nav a:focus {
@@ -114,20 +117,24 @@ body {
 }
 
 .conta-admin {
+  border: 1px solid transparent;
+  border-top: 1px solid #395969;
+  border-radius: 15px;
   cursor: pointer;
   width: 100%;
   padding: 15px;
-  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
   gap: 10px;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .conta-admin:hover {
-  background-color: #2d4652;
+  border: 1px solid #395969;
+  box-shadow: 1px 1px 1px 5px #24384265;
+  transform: translateY(-3px);
 }
 
 .conta-perfil {
