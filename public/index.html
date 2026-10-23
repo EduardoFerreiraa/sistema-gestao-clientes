@@ -4,14 +4,185 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema de Gestão de Clientes</title>
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Sistema de Gestão de Clientes</h1>
-      <nav></nav>
+    <header class="header">
+      <div class="logo">
+        <img src="#" alt="" />
+        <h1>Gestão de Clientes</h1>
+      </div>
+      <div class="admin-button">
+        <img src="#" alt="" />
+        <button>Administrador <span>⌄</span></button>
+      </div>
     </header>
 
-    <main></main>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-content">
+          <h2>Carteira</h2>
+          <nav class="sidebar-nav">
+            <a href="#">Painel</a>
+            <a href="#">Clientes</a>
+            <a href="#">Propostas</a>
+            <a href="#">Relatórios</a>
+            <a href="#">Configurações</a>
+          </nav>
+        </div>
+
+        <div class="conta-admin">
+          <div class="conta-perfil"></div>
+          <div class="sua-conta">
+            <h2>Administrador</h2>
+            <p>Sua conta</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="content-info">
+          <div>
+            <h2 id="title">Clientes</h2>
+            <p id="subtitle">
+              Cadastre, consulte, atualize e remova clientes em um só lugar.
+            </p>
+          </div>
+
+          <div class="novo-cliente">
+            <button>Exportar CSV</button>
+            <button id="btn-novo">+ Novo cliente</button>
+          </div>
+        </div>
+
+        <div class="content-clientes">
+          <div class="layout-table">
+            <div id="content-filter">
+              <input
+                type="search"
+                id="filter-search"
+                placeholder="Buscar por nome, e-mail e telefone"
+              />
+              <select class="options">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+                <option value="pendente">Pendente</option>
+              </select>
+            </div>
+
+            <table class="table">
+              <thead class="thead">
+                <tr class="tr">
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Telefone</th>
+                  <th>CPF</th>
+                  <th>Empresa</th>
+                  <th>Cidade</th>
+                  <th>Status</th>
+                  <th>Observações</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+
+              <tbody class="tbody" id="lista-clientes"></tbody>
+            </table>
+          </div>
+
+          <div class="layout-cliente">
+            <h2>Novo cliente</h2>
+            <p>Ao clicar em editar, este painel carrega os dados do cliente.</p>
+
+            <form id="formulario">
+              <label for="nome">Nome completo</label>
+              <input
+                type="text"
+                id="nomeInput"
+                placeholder="Ex: Ana Beatriz Souza"
+              />
+              <small id="erro-nome" class="erro"></small>
+
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                name="email"
+                id="emailInput"
+                placeholder="nome@empresa.com.br"
+              />
+              <small id="erro-email" class="erro"></small>
+
+              <div class="labels">
+                <div class="tel">
+                  <label for="telefone">Telefone</label>
+                  <input
+                    type="tel"
+                    name="telefone"
+                    id="telefoneInput"
+                    placeholder="(00) 00000-0000"
+                  />
+                  <small id="erro-telefone" class="erro"></small>
+                </div>
+
+                <div class="cpf">
+                  <label for="cpf">CPF / CNPJ</label>
+                  <input
+                    type="text"
+                    name="cpf"
+                    id="cpfInput"
+                    placeholder="000.000.000-00"
+                  />
+                  <small id="erro-cpf" class="erro"></small>
+                </div>
+              </div>
+
+              <label for="empresa">Empresa</label>
+              <input
+                type="text"
+                name="empresa"
+                id="empresaInput"
+                placeholder="Nome da empresa (opcional)"
+              />
+
+              <div class="labels">
+                <div class="cidade">
+                  <label for="cidade">Cidade</label>
+                  <input
+                    type="text"
+                    name="cidade"
+                    id="cidadeInput"
+                    placeholder="Cidade"
+                  />
+                  <small id="erro-cidade" class="erro"></small>
+                </div>
+
+                <div class="status">
+                  <label for="status">Status</label>
+                  <select class="options-status" id="statusInput">
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                    <option value="pendente">Pendente</option>
+                  </select>
+                </div>
+              </div>
+
+              <label for="observacoes">Observacoes:</label>
+              <textarea
+                name="observacoes"
+                id="observacoesInput"
+                rows="3"
+                placeholder="Anotações internas sobre o cliente"
+              >
+              </textarea>
+
+              <div class="btn-form">
+                <button id="btn-cancelar">Cancelar</button>
+                <button id="btn-salvar" type="submit">Salvar cliente</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <footer></footer>
 
