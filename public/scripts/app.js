@@ -8,6 +8,10 @@ const statusInput = document.querySelector("#statusInput");
 const observacoesInput = document.querySelector("#observacoesInput");
 const tabelaClientes = document.querySelector("#lista-clientes");
 
+const btnNovoCliente = document.querySelector("#btn-novo");
+const btnCancelarForm = document.querySelector("#btn-cancelar");
+const layoutForm = document.querySelector(".layout-cliente");
+
 const erroNome = document.querySelector("#erro-nome");
 const erroEmail = document.querySelector("#erro-email");
 const erroTelefone = document.querySelector("#erro-telefone");
@@ -16,6 +20,21 @@ const erroCidade = document.querySelector("#erro-cidade");
 
 const formulario = document.querySelector("#formulario");
 const listaClientes = document.querySelector("#lista-clientes");
+
+function formularioAberto() {
+  btnNovoCliente.addEventListener("click", () => {
+    layoutForm.classList.add("layout-aberto");
+  });
+}
+
+function formularioFechando() {
+  btnCancelarForm.addEventListener("click", () => {
+    layoutForm.classList.remove("layout-aberto");
+  });
+}
+
+formularioAberto();
+formularioFechando();
 
 async function listarClientes() {
   const resposta = await fetch("http://localhost:3000/clientes");
