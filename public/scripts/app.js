@@ -131,6 +131,29 @@ async function listarClientes() {
     btnExcluir.type = "button";
     btnExcluir.textContent = "Excluir";
 
+    btnExcluir.addEventListener("click", async () => {
+      if (confirm("Tem certeza que deseja excluir este cliente?")) {
+        const resposta = await fetch(
+          `http://localhost:3000/clientes/${cliente.id}`,
+          {
+            method: "DELETE",
+          },
+        );
+
+        if (!resposta.ok) {
+          const erroServidor = await resposta.json();
+
+          console.error("Erro detalhado:", erroServidor);
+          alert(
+            `Erro ao deletar: ${erroServidor.detalhe || erroServidor.erro || "Erro desconhecido"}`,
+          );
+          return;
+        }
+
+        listarClientes();
+      }
+    });
+
     celulaAcoes.append(btnEditar, btnExcluir);
 
     linha.append(
@@ -260,6 +283,8 @@ formulario.addEventListener("submit", async (event) => {
   const dados = await resposta.json();
   console.log(dados);
 
-  formulario.reset();
+  limparFormulario();
+  clienteEditandoId = null;
+  layoutForm.classList.remove("latout-aberto");
   listarClientes();
 });
