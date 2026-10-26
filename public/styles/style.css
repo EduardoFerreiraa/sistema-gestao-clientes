@@ -60,11 +60,15 @@ body {
 /* sidebar */
 .layout {
   display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
 }
 
 .sidebar {
-  width: 250px;
-  position: sticky;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: calc(100vh - 60px);
   padding: 15px;
   background-color: #152227;
@@ -97,8 +101,12 @@ body {
 }
 
 .sidebar-nav a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
   width: 100%;
-  padding: 15px;
+  padding: 12px 15px;
   border-radius: 10px;
   font-weight: 500;
   text-decoration: none;
@@ -108,22 +116,24 @@ body {
 }
 
 .sidebar-nav a:hover {
-  border: 1px solid #395969;
-  box-shadow: 1px 1px 1px 5px #24384265;
+  border: 1px solid transparent;
+  background-color: #f0f0f0;
+  color: black;
   transform: translateY(-3px);
 }
 
-.sidebar-nav a:focus {
-  background-color: #3e6272;
+.sidebar-nav a.ativo {
+  background-color: #e6f2f2;
+  color: #008080;
+  font-weight: bold;
 }
 
 .conta-admin {
-  border: 1px solid transparent;
-  border-top: 1px solid #395969;
+  background-color: #f0f0f0;
   border-radius: 15px;
   cursor: pointer;
   width: 100%;
-  padding: 15px;
+  padding: 12px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,8 +144,7 @@ body {
 }
 
 .conta-admin:hover {
-  border: 1px solid #395969;
-  box-shadow: 1px 1px 1px 5px #24384265;
+  background-color: rgb(212, 212, 212);
   transform: translateY(-3px);
 }
 
@@ -144,7 +153,7 @@ body {
   height: 40px;
   margin-top: 10px;
   border-radius: 50%;
-  background-color: white;
+  background-color: #008080;
 }
 
 .sua-conta {
@@ -155,10 +164,12 @@ body {
 }
 
 .sua-conta h2 {
-  font-size: 1em;
+  color: black;
+  font-size: 16px;
 }
 
 .sua-conta p {
+  font-size: 15px;
   margin-left: 5px;
   color: rgb(133, 132, 132);
 }

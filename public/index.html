@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema de Gestão de Clientes</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="img/favicon_io/android-chrome-512x512.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header class="header">
@@ -23,11 +28,26 @@
         <div class="sidebar-content">
           <h2>Carteira</h2>
           <nav class="sidebar-nav">
-            <a href="#">Painel</a>
-            <a href="#">Clientes</a>
-            <a href="#">Propostas</a>
-            <a href="#">Relatórios</a>
-            <a href="#">Configurações</a>
+            <a href="#" class="ativo">
+              <i data-lucide="layout-dashboard"></i>
+              Painel
+            </a>
+            <a href="#">
+              <i data-lucide="users"></i>
+              Clientes
+            </a>
+            <a href="#">
+              <i data-lucide="file-text"></i>
+              Propostas
+            </a>
+            <a href="#">
+              <i data-lucide="bar-chart-2"></i>
+              Relatórios
+            </a>
+            <a href="#">
+              <i data-lucide="settings"></i>
+              Configurações
+            </a>
           </nav>
         </div>
 
@@ -187,5 +207,7 @@
     <footer></footer>
 
     <script src="scripts/app.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
   </body>
 </html>
