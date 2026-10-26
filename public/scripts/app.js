@@ -11,6 +11,7 @@ const tabelaClientes = document.querySelector("#lista-clientes");
 const btnNovoCliente = document.querySelector("#btn-novo");
 const btnCancelarForm = document.querySelector("#btn-cancelar");
 const layoutForm = document.querySelector(".layout-cliente");
+const tituloForm = document.querySelector("#titulo-form");
 
 const erroNome = document.querySelector("#erro-nome");
 const erroEmail = document.querySelector("#erro-email");
@@ -21,19 +22,47 @@ const erroCidade = document.querySelector("#erro-cidade");
 const formulario = document.querySelector("#formulario");
 const listaClientes = document.querySelector("#lista-clientes");
 
-function formularioAberto() {
+let clienteEditandoId = null;
+
+function limparFormulario() {
+  const campos = [
+    { input: nomeInput, erro: erroNome },
+    { input: emailInput, erro: erroEmail },
+    { input: telefoneInput, erro: erroTelefone },
+    { input: cpfInput, erro: erroCpf },
+    { input: cidadeInput, erro: erroCidade },
+    { input: empresaInput, erro: null },
+    { input: observacoesInput, erro: null },
+  ];
+
+  campos.forEach((campo) => {
+    campo.input.value = "";
+    campo.input.classList.remove("erro-input");
+
+    if (campo.erro) {
+      campo.erro.textContent = "";
+    }
+  });
+}
+
+function formularioAbrindo() {
   btnNovoCliente.addEventListener("click", () => {
+    clienteEditandoId = null;
+    limparFormulario();
+
     layoutForm.classList.add("layout-aberto");
+    tituloForm.textContent = "Novo cliente";
   });
 }
 
 function formularioFechando() {
   btnCancelarForm.addEventListener("click", () => {
     layoutForm.classList.remove("layout-aberto");
+    limparFormulario();
   });
 }
 
-formularioAberto();
+formularioAbrindo();
 formularioFechando();
 
 async function listarClientes() {
@@ -76,9 +105,26 @@ async function listarClientes() {
     celulaAcoes.classList.add("acoes");
 
     const btnEditar = document.createElement("button");
+
     btnEditar.classList.add("btn-editar");
     btnEditar.type = "button";
     btnEditar.textContent = "Editar";
+
+    btnEditar.addEventListener("click", async () => {
+      clienteEditandoId = cliente.id;
+
+      nomeInput.value = cliente.nome;
+      emailInput.value = cliente.email;
+      telefoneInput.value = cliente.telefone;
+      cpfInput.value = cliente.cpf_cnpj;
+      empresaInput.value = cliente.empresa || "";
+      cidadeInput.value = cliente.cidade;
+      statusInput.value = cliente.status;
+      observacoesInput.value = cliente.observacoes || "";
+
+      layoutForm.classList.add("layout-aberto");
+      tituloForm.textContent = "Editar cliente";
+    });
 
     const btnExcluir = document.createElement("button");
     btnExcluir.classList.add("btn-excluir");
@@ -186,8 +232,15 @@ formulario.addEventListener("submit", async (event) => {
 
   console.log(cliente);
 
-  const resposta = await fetch("http://localhost:3000/clientes", {
-    method: "POST",
+  const url =
+    clienteEditandoId === null
+      ? "http://localhost:3000/clientes"
+      : `http://localhost:3000/clientes/${clienteEditandoId}`;
+
+  const metodo = clienteEditandoId === null ? "POST" : "PUT";
+
+  const resposta = await fetch(url, {
+    method: metodo,
     headers: {
       "Content-Type": "application/json",
     },
@@ -195,7 +248,13 @@ formulario.addEventListener("submit", async (event) => {
   });
 
   if (!resposta.ok) {
-    return alert("Erro interno no servidor");
+    const erroServidor = await resposta.json();
+
+    console.error("Erro detalhado:", erroServidor);
+    alert(
+      `Erro ao cadastrar: ${erroServidor.detalhe || erroServidor.erro || "Erro desconhecido"}`,
+    );
+    return;
   }
 
   const dados = await resposta.json();
