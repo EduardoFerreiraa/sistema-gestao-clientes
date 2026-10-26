@@ -13,27 +13,159 @@ app.use(
 app.use(express.json());
 
 app.post("/clientes", async (req, res) => {
-  const nome = req.body.nome;
-  const email = req.body.email;
-  const telefone = req.body.telefone;
-  const cpf_cnpj = req.body.cpf_cnpj;
-  const empresa = req.body.empresa;
-  const cidade = req.body.cidade;
-  const status = req.body.status;
-  const observacoes = req.body.observacoes;
+  try {
+    let {
+      nome,
+      email,
+      telefone,
+      cpf_cnpj,
+      empresa,
+      cidade,
+      status,
+      observacoes,
+    } = req.body;
 
-  const resposta = await pool.query(
-    `INSERT INTO clientes (nome, email, telefone, cpf_cnpj, empresa, cidade, status, observacoes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    if (cpf_cnpj) {
+      cpf_cnpj = cpf_cnpj.replace(/\D/g, "");
+    }
+
+    const statusValido = ["Ativo", "Pendente", "Inativo"].includes(status)
+      ? status
+      : "Ativo";
+
+    const resposta = await pool.query(
+      `INSERT INTO clientes (nome, email, telefone, cpf_cnpj, empresa, cidade, status, observacoes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     RETURNING id, nome, email, telefone, cpf_cnpj, empresa, cidade, status, observacoes`,
-    [nome, email, telefone, cpf_cnpj, empresa, cidade, status, observacoes],
-  );
+      [
+        nome,
+        email,
+        telefone,
+        cpf_cnpj,
+        empresa,
+        cidade,
+        statusValido,
+        observacoes,
+      ],
+    );
 
-  return res.status(201).json(resposta.rows[0]);
+    return res.status(201).json(resposta.rows[0]);
+  } catch (erro) {
+    console.log("ERRO NO BANCO DE DADOS: ", erro.message);
+
+    return res.status(500).json({
+      erro: "Erro interno ao cadastrar cliente.",
+      detalhe: erro.message,
+    });
+  }
 });
 
 app.get("/clientes", async (req, res) => {
   const resposta = await pool.query("SELECT * FROM clientes");
   return res.json(resposta.rows);
+});
+
+app.put("/clientes/:id", async (req, res) => {
+  try {
+    let {
+      nome,
+      email,
+      telefone,
+      cpf_cnpj,
+      empresa,
+      cidade,
+      status,
+      observacoes,
+    } = req.body;
+
+    nome = (nome || "").trim();
+    email = (email || "").trim();
+    telefone = (telefone || "").trim();
+    cpf_cnpj = (cpf_cnpj || "").trim();
+    empresa = (empresa || "").trim();
+    cidade = (cidade || "").trim();
+    status = (status || "").trim();
+    observacoes = (observacoes || "").trim();
+
+    const id = Number(req.params.id);
+
+    if (Number.isNaN(id)) {
+      return res.status(400).json({
+        erro: "O id deve ser um número.",
+      });
+    }
+
+    if (cpf_cnpj) {
+      cpf_cnpj = cpf_cnpj.replace(/\D/g, "");
+    }
+
+    const statusValido = ["Ativo", "Pendente", "Inativo"].includes(status)
+      ? status
+      : "Ativo";
+
+    const resposta = await pool.query(
+      `UPDATE clientes
+    SET nome = $1, email = $2, telefone = $3, cpf_cnpj = $4, empresa = $5, cidade = $6, status = $7, observacoes = $8
+    WHERE id = $9
+    RETURNING *`,
+      [
+        nome,
+        email,
+        telefone,
+        cpf_cnpj,
+        empresa,
+        cidade,
+        statusValido,
+        observacoes,
+        id,
+      ],
+    );
+
+    if (resposta.rowCount === 0) {
+      return res.status(404).json({
+        erro: "Cliente não encontrado!",
+      });
+    }
+
+    res.status(200).json(resposta.rows[0]);
+  } catch (erro) {
+    console.log("ERRO NO BANCO DE DADOS: ", erro.message);
+
+    return res.status(500).json({
+      erro: "Erro interno ao atualizar cliente",
+      detalhe: erro.message,
+    });
+  }
+});
+
+app.delete("/clientes/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    if (Number.isNaN(id)) {
+      return res.status(400).json({
+        erro: "O id deve ser um número.",
+      });
+    }
+
+    const resposta = await pool.query(`DELETE FROM clientes WHERE id = $1`, [
+      id,
+    ]);
+
+    if (resposta.rowCount === 0) {
+      return res.status(404).json({
+        erro: "Cliente não encontrado!",
+      });
+    }
+
+    return res.status(204).send();
+  } catch (erro) {
+    console.log("ERRO NO BANCO DE DADOS: ", erro.message);
+
+    return res.status(500).json({
+      erro: "Erro interno ao deletar cliente",
+      detalhe: erro.message,
+    });
+  }
 });
 
 app.listen(PORT, () => {

@@ -63,10 +63,10 @@
                 id="filter-search"
                 placeholder="Buscar por nome, e-mail e telefone"
               />
-              <select class="options">
-                <option value="ativo">Ativo</option>
-                <option value="inativo">Inativo</option>
-                <option value="pendente">Pendente</option>
+              <select class="options" id="status">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+                <option value="Pendente">Pendente</option>
               </select>
             </div>
 
@@ -90,7 +90,7 @@
           </div>
 
           <div class="layout-cliente">
-            <h2>Novo cliente</h2>
+            <h2 id="titulo-form">Novo cliente</h2>
             <p>Ao clicar em editar, este painel carrega os dados do cliente.</p>
 
             <form id="formulario">
