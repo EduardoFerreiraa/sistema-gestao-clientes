@@ -165,7 +165,7 @@ body {
 .main {
   width: 100%;
   background-color: rgb(243, 243, 243);
-  padding: 25px 50px;
+  padding: 15px 25px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -224,11 +224,11 @@ body {
 
 .content-clientes {
   width: 100%;
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 25px;
+  gap: 20px;
 }
 
 .layout-table {
@@ -314,7 +314,7 @@ body {
 }
 
 .layout-cliente {
-  display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -323,6 +323,20 @@ body {
   background-color: #fafafa;
   padding: 25px;
   gap: 5px;
+  opacity: 0;
+
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.layout-cliente.layout-aberto {
+  width: 30%;
+  padding: 25px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .layout-cliente h2 {
