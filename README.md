@@ -33,7 +33,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [x] Consumo de API REST via `fetch`
 
 ## 🖼️ Preview do Projeto
-<img width="1920" height="995" alt="Captura de tela de 2026-10-25 05-02-39" src="https://github.com/user-attachments/assets/201d12f7-3049-45b2-9ce5-9ae537f789d6" />
+<img width="1919" height="995" alt="image" src="https://github.com/user-attachments/assets/c74c9e7c-720c-43aa-b8fd-5d115b229339" />
 
 ## 🔧 Como rodar o projeto localmente
 
