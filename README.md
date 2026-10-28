@@ -2,9 +2,9 @@
 
 Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exclusão de clientes. O projeto foi construído com o objetivo de praticar a integração entre Frontend e Backend, utilizando arquitetura desacoplada (API REST).
 
-## Release: v1.0.1
+## Release: v1.0.2
 
-Primeira versão estável do Sistema de Gestão de Clientes.
+Ajustes para Deploy e Correção de UI.
 
 ## Arquitetura e Refatoração
 
