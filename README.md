@@ -1,5 +1,7 @@
 # 💼 Sistema de Gestão de Clientes
 
+🌐 **Acesse o projeto online**: [gestao-clientes-app-three.vercel.app](https://gestao-clientes-app-three.vercel.app)
+
 Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exclusão de clientes. O projeto foi construído com o objetivo de praticar a integração entre Frontend e Backend, utilizando arquitetura desacoplada (API REST).
 
 ## Release: v1.0.2
