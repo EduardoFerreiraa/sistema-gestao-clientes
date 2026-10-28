@@ -8,7 +8,7 @@ const listar = async (req, res) => {
     console.error("ERRO NO BANCO: ", erro.message);
     return res.status(500).json({
       erro: "Erro interno ao listar clientes.",
-      detalhe: erro.message,
+      detalhe: erro.message || erro.detail || erro.code || "Erro desconhecido",
     });
   }
 };
@@ -30,7 +30,7 @@ const cadastrar = async (req, res) => {
     console.error("ERRO NO BANCO: ", erro.message);
     return res.status(500).json({
       erro: "Erro interno ao cadastrar.",
-      detalhe: erro.message,
+      detalhe: erro.message || erro.detail || erro.code || "Erro desconhecido",
     });
   }
 };
@@ -64,7 +64,7 @@ const editar = async (req, res) => {
     console.error("ERRO NO BANCO: ", erro.message);
     return res.status(500).json({
       erro: "Erro ao editar cliente",
-      detalhe: erro.message,
+      detalhe: erro.message || erro.detail || erro.code || "Erro desconhecido",
     });
   }
 };
@@ -91,7 +91,7 @@ const deletar = async (req, res) => {
     console.error("ERRO NO BANCO: ", erro.message);
     return res.status(500).json({
       erro: "Erro interno ao deletar cliente",
-      detalhe: erro.message,
+      detalhe: erro.message || erro.detail || erro.code || "Erro desconhecido",
     });
   }
 };
