@@ -1,14 +1,14 @@
 const cors = require("cors");
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // importando rotas
 const clienteRoutes = require("./routes/clienteRoutes");
 
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500",
+    origin: process.env.FRONTEND_URL || "http://127.0.0.1:5500",
   }),
 );
 app.use(express.json());

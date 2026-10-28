@@ -6,6 +6,12 @@ Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exc
 
 Primeira versão estável do Sistema de Gestão de Clientes.
 
+## Arquitetura e Refatoração
+
+- Backend refatorado para o padrão MVC (Model, Controller, Routes).
+- CRUD completo de clientes (Frontend e Backend).
+- Código do `server.js` mais limpo e organizado.
+
 ## 🚀 Tecnologias Utilizadas
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
