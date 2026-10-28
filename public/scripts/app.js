@@ -1,3 +1,5 @@
+const API_URL = "https://sistema-gestao-clientes.onrender.com";
+
 const nomeInput = document.querySelector("#nomeInput");
 const emailInput = document.querySelector("#emailInput");
 const telefoneInput = document.querySelector("#telefoneInput");
@@ -66,7 +68,7 @@ formularioAbrindo();
 formularioFechando();
 
 async function listarClientes() {
-  const resposta = await fetch("http://localhost:3000/clientes");
+  const resposta = await fetch(`${API_URL}/clientes`);
   const clientes = await resposta.json();
   tabelaClientes.innerHTML = "";
 
@@ -133,12 +135,9 @@ async function listarClientes() {
 
     btnExcluir.addEventListener("click", async () => {
       if (confirm("Tem certeza que deseja excluir este cliente?")) {
-        const resposta = await fetch(
-          `http://localhost:3000/clientes/${cliente.id}`,
-          {
-            method: "DELETE",
-          },
-        );
+        const resposta = await fetch(`${API_URL}/clientes/${cliente.id}`, {
+          method: "DELETE",
+        });
 
         if (!resposta.ok) {
           const erroServidor = await resposta.json();
@@ -257,8 +256,8 @@ formulario.addEventListener("submit", async (event) => {
 
   const url =
     clienteEditandoId === null
-      ? "http://localhost:3000/clientes"
-      : `http://localhost:3000/clientes/${clienteEditandoId}`;
+      ? `${API_URL}/clientes`
+      : `${API_URL}/clientes/${clienteEditandoId}`;
 
   const metodo = clienteEditandoId === null ? "POST" : "PUT";
 
@@ -285,6 +284,6 @@ formulario.addEventListener("submit", async (event) => {
 
   limparFormulario();
   clienteEditandoId = null;
-  layoutForm.classList.remove("latout-aberto");
+  layoutForm.classList.remove("layout-aberto");
   listarClientes();
 });
