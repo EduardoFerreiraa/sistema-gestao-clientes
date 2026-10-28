@@ -2,25 +2,32 @@
 
 Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exclusão de clientes. O projeto foi construído com o objetivo de praticar a integração entre Frontend e Backend, utilizando arquitetura desacoplada (API REST).
 
+## Release: v1.0.0
+
+Primeira versão estável do Sistema de Gestão de Clientes.
+
 ## 🚀 Tecnologias Utilizadas
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
 **Frontend:**
-* HTML5
-* CSS3 (com animações e design responsivo)
-* JavaScript (ES6+, manipulação de DOM e Fetch API)
+
+- HTML5
+- CSS3 (com animações e design responsivo)
+- JavaScript (ES6+, manipulação de DOM e Fetch API)
 
 **Backend:**
-* Node.js
-* Express.js
-* PostgreSQL (Banco de dados relacional)
-* pg (Driver de conexão)
+
+- Node.js
+- Express.js
+- PostgreSQL (Banco de dados relacional)
+- pg (Driver de conexão)
 
 **Ferramentas:**
-* Git e GitHub
-* VS Code
-* Insomnia / Postman (para testes de API)
+
+- Git e GitHub
+- VS Code
+- Insomnia / Postman (para testes de API)
 
 ## ⚙️ Funcionalidades
 
@@ -33,38 +40,47 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [x] Consumo de API REST via `fetch`
 
 ## 🖼️ Preview do Projeto
+
 <img width="1919" height="995" alt="image" src="https://github.com/user-attachments/assets/c74c9e7c-720c-43aa-b8fd-5d115b229339" />
 
 ## 🔧 Como rodar o projeto localmente
 
 ### Pré-requisitos
+
 Antes de começar, você vai precisar ter instalado em sua máquina:
-* [Node.js](https://nodejs.org/en/)
-* [PostgreSQL](https://www.postgresql.org/)
-* [Git](https://git-scm.com/)
+
+- [Node.js](https://nodejs.org/en/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Git](https://git-scm.com/)
 
 ### Passo a passo
 
 1. Clone este repositório:
+
 ```bash
 git clone https://github.com/EduardoFerreiraa/sistema-gestao-clientes.git
 ```
+
 ---
 
 2. Acesse a pasta do projeto no terminal:
+
 ```bash
 cd sistema-gestao-clientes
 ```
+
 ---
 
 3. Instale as dependências do backend:
+
 ```bash
 npm install
 ```
+
 ---
 
 4. Configure as variáveis de ambiente:
-Crie um arquivo `.env` na raiz do projeto e adicione as suas credenciais do banco de dados (baseado no arquivo `.env.example`, se houver):
+   Crie um arquivo `.env` na raiz do projeto e adicione as suas credenciais do banco de dados (baseado no arquivo `.env.example`, se houver):
 
 ```env
 PORT=3000
@@ -78,7 +94,7 @@ DB_PORT=5432
 ---
 
 5. Crie a tabela no banco de dados PostgresSQL:
-(Aqui você pode colocar o código SQL que você usou para criar a tabela, ex:)
+   (Aqui você pode colocar o código SQL que você usou para criar a tabela, ex:)
 
 ```sql
 CREATE TABLE clientes (
@@ -93,6 +109,7 @@ CREATE TABLE clientes (
   observacoes TEXT
 );
 ```
+
 ---
 
 6. Inicie o servidor backend:
@@ -100,7 +117,8 @@ CREATE TABLE clientes (
 ```bash
 node server.js
 ```
+
 ---
 
 7. Abra o Frontend:
-Abra o arquivo `index.html` no seu navegador (recomendado usar a extensão Live Server no VS Code).
+   Abra o arquivo `index.html` no seu navegador (recomendado usar a extensão Live Server no VS Code).
