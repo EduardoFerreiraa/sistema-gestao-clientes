@@ -1,7 +1,23 @@
 const pool = require("../db");
 
-const listarTodos = async () => {
-  const resultado = await pool.query("SELECT * FROM clientes ORDER BY id ASC");
+const listarTodos = async (filtros = {}) => {
+  let query = "SELECT * FROM clientes";
+  let values = [];
+
+  if (filtros.busca && filtros.status) {
+    query += " WHERE (nome ILIKE $1 OR email ILIKE $1) AND status = $2";
+    values = [`%${filtros.busca}%`, filtros.status];
+  } else if (filtros.busca) {
+    query += " WHERE nome ILIKE $1 OR email ILIKE $1";
+    values = [`%${filtros.busca}%`];
+  } else if (filtros.status) {
+    query += " WHERE status = $1";
+    values = [filtros.status];
+  }
+
+  query += " ORDER BY id ASC";
+
+  const resultado = await pool.query(query, values);
   return resultado.rows;
 };
 

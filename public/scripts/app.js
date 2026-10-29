@@ -1,4 +1,4 @@
-const API_URL = "https://sistema-gestao-clientes.onrender.com";
+const API_URL = "http://localhost:3000";
 
 const nomeInput = document.querySelector("#nomeInput");
 const emailInput = document.querySelector("#emailInput");
@@ -9,6 +9,9 @@ const cidadeInput = document.querySelector("#cidadeInput");
 const statusInput = document.querySelector("#statusInput");
 const observacoesInput = document.querySelector("#observacoesInput");
 const tabelaClientes = document.querySelector("#lista-clientes");
+
+const inputBusca = document.querySelector("#filter-search");
+const selectStatus = document.querySelector("#status");
 
 const btnNovoCliente = document.querySelector("#btn-novo");
 const btnCancelarForm = document.querySelector("#btn-cancelar");
@@ -67,9 +70,32 @@ function formularioFechando() {
 formularioAbrindo();
 formularioFechando();
 
+function debounce(func, wait) {
+  let timeout;
+
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 async function listarClientes() {
-  const resposta = await fetch(`${API_URL}/clientes`);
+  const termo = inputBusca ? inputBusca.value.trim() : "";
+  const statusFiltro = selectStatus ? selectStatus.value : "";
+
+  let url = `${API_URL}/clientes?`;
+
+  if (termo) url += `busca=${encodeURIComponent(termo)}&`;
+  if (statusFiltro && statusFiltro !== "Todos")
+    url += `status=${statusFiltro}&`;
+
+  const resposta = await fetch(url);
   const clientes = await resposta.json();
+
   tabelaClientes.innerHTML = "";
 
   clientes.forEach((cliente) => {
@@ -169,6 +195,24 @@ async function listarClientes() {
 
     tabelaClientes.appendChild(linha);
   });
+}
+
+if (inputBusca) {
+  inputBusca.addEventListener(
+    "input",
+    debounce(() => {
+      listarClientes();
+    }, 400),
+  );
+}
+
+if (selectStatus) {
+  selectStatus.addEventListener(
+    "change",
+    debounce(() => {
+      listarClientes();
+    }, 400),
+  );
 }
 
 listarClientes();
