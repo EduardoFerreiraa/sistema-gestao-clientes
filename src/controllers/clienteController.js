@@ -2,7 +2,9 @@ const clienteModel = require("../models/clienteModel");
 
 const listar = async (req, res) => {
   try {
-    const clientes = await clienteModel.listarTodos();
+    const { busca, status } = req.query;
+
+    const clientes = await clienteModel.listarTodos({ busca, status });
     return res.json(clientes);
   } catch (erro) {
     console.error("ERRO NO BANCO: ", erro.message);
