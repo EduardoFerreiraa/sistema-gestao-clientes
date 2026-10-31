@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css" />
+    <link
+      rel="shortcut icon"
+      href="img/favicon-login/favicon-32x32.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <main class="login-container">
+      <div class="login-form">
+        <img class="logo" src="img/logo-login.png" alt="Logo Login" />
+        <h1 class="login-title">Bem-vindo de volta</h1>
+        <p class="login-descricao">Faça login para acessar o sistema.</p>
+        <form id="form">
+          <label for="e-mail" class="label">E-mail</label>
+          <input
+            type="email"
+            name="e-mail"
+            id="emailInput"
+            class="input"
+            placeholder="seu@email.com"
+          />
+          <small id="erro-email" class="erro"></small>
+
+          <label for="senha" class="label">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            id="senhaInput"
+            class="input"
+            placeholder="Sua senha"
+          />
+          <small id="erro-senha" class="erro"></small>
+
+          <a href="#" class="esqueceu">Esqueceu a senha?</a>
+          <button class="btn-login">Entrar</button>
+
+          <p class="conta">
+            Não tem uma conta?
+            <a href="cadastro.html" class="conta-link">Criar</a>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <script src="scripts/login.js"></script>
+  </body>
+</html>

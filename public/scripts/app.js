@@ -1,4 +1,10 @@
-const API_URL = "https://sistema-gestao-clientes.onrender.com";
+const token = localStorage.getItem("token");
+
+if (!token) {
+  window.location.href = "login.html";
+}
+
+const API_URL = "http://localhost:3000";
 
 const nomeInput = document.querySelector("#nomeInput");
 const emailInput = document.querySelector("#emailInput");
@@ -93,7 +99,13 @@ async function listarClientes() {
   if (statusFiltro && statusFiltro !== "Todos")
     url += `status=${statusFiltro}&`;
 
-  const resposta = await fetch(url);
+  const resposta = await fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
   const clientes = await resposta.json();
 
   tabelaClientes.innerHTML = "";
@@ -163,6 +175,9 @@ async function listarClientes() {
       if (confirm("Tem certeza que deseja excluir este cliente?")) {
         const resposta = await fetch(`${API_URL}/clientes/${cliente.id}`, {
           method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         if (!resposta.ok) {
@@ -182,6 +197,7 @@ async function listarClientes() {
     celulaAcoes.append(btnEditar, btnExcluir);
 
     linha.append(
+      celulaId,
       celulaNome,
       celulaEmail,
       celulaTelefone,
@@ -309,6 +325,7 @@ formulario.addEventListener("submit", async (event) => {
     method: metodo,
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(cliente),
   });
