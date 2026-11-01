@@ -31,7 +31,6 @@ const erroCpf = document.querySelector("#erro-cpf");
 const erroCidade = document.querySelector("#erro-cidade");
 
 const formulario = document.querySelector("#formulario");
-const listaClientes = document.querySelector("#lista-clientes");
 
 let clienteEditandoId = null;
 
@@ -62,6 +61,7 @@ function formularioAbrindo() {
     limparFormulario();
 
     layoutForm.classList.add("layout-aberto");
+    layoutForm.style.marginLeft = "20px";
     tituloForm.textContent = "Novo cliente";
   });
 }
@@ -69,6 +69,7 @@ function formularioAbrindo() {
 function formularioFechando() {
   btnCancelarForm.addEventListener("click", () => {
     layoutForm.classList.remove("layout-aberto");
+    layoutForm.style.marginLeft = "0";
     limparFormulario();
   });
 }
@@ -346,5 +347,6 @@ formulario.addEventListener("submit", async (event) => {
   limparFormulario();
   clienteEditandoId = null;
   layoutForm.classList.remove("layout-aberto");
+  layoutForm.style.marginLeft = "0";
   listarClientes();
 });
