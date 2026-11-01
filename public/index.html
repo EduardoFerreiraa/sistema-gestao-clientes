@@ -61,33 +61,80 @@
       </aside>
 
       <main class="main">
-        <div class="content-info">
-          <div>
-            <h2 id="title">Clientes</h2>
-            <p id="subtitle">
-              Cadastre, consulte, atualize e remova clientes em um só lugar.
-            </p>
+        <div class="main-content">
+          <div class="content-info">
+            <div>
+              <div class="navegacao">
+                <a href="index.html">Painel</a>
+                <p>></p>
+                <p class="navegacao-title">Clientes</p>
+              </div>
+              <h2 id="title">Clientes</h2>
+              <p id="subtitle">
+                Cadastre, consulte, atualize e remova clientes em um só lugar.
+              </p>
+            </div>
+
+            <div class="novo-cliente">
+              <button class="exportar-csv">
+                <img src="img/download-direto.png" alt="Baixar Logo" />
+                <div>Exportar CSV</div>
+              </button>
+              <button id="btn-novo">+ Novo cliente</button>
+            </div>
           </div>
 
-          <div class="novo-cliente">
-            <button>Exportar CSV</button>
-            <button id="btn-novo">+ Novo cliente</button>
-          </div>
-        </div>
+          <div class="info-table">
+            <div class="info-card">
+              <img src="img/total-clientes.png" alt="Logo Ativos" />
+              <div>
+                <p>Total de clientes</p>
+                <p id="count-totalClientes" class="card-count">0</p>
+              </div>
+            </div>
 
-        <div class="content-clientes">
+            <div class="info-card">
+              <img src="img/ativos.png" alt="Logo Ativo" />
+              <div>
+                <p>Ativos</p>
+                <p id="count-ativos" class="card-count">0</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <img src="img/pendentes.png" alt="Logo Pendentes" />
+              <div>
+                <p>Pendentes</p>
+                <p id="count-pendentes" class="card-count">0</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <img src="img/inativos.png" alt="Logo Inativos" />
+              <div>
+                <p>Inativos</p>
+                <p id="count-inativos" class="card-count">0</p>
+              </div>
+            </div>
+          </div>
+
           <div class="layout-table">
             <div id="content-filter">
-              <input
-                type="search"
-                id="filter-search"
-                placeholder="Buscar por nome, e-mail e telefone"
-              />
+              <div class="search-container">
+                <img id="lupa" src="img/lupa.png" alt="Lupa" />
+                <input
+                  type="search"
+                  id="filter-search"
+                  placeholder="Buscar por nome, e-mail e telefone"
+                />
+              </div>
               <select class="options" id="status">
                 <option value="Ativo">Ativo</option>
                 <option value="Inativo">Inativo</option>
                 <option value="Pendente">Pendente</option>
               </select>
+
+              <button class="limpar-filtros">Limpar filtros</button>
             </div>
 
             <table class="table">
@@ -109,98 +156,98 @@
               <tbody class="tbody" id="lista-clientes"></tbody>
             </table>
           </div>
+        </div>
 
-          <div class="layout-cliente">
-            <h2 id="titulo-form">Novo cliente</h2>
-            <p>Ao clicar em editar, este painel carrega os dados do cliente.</p>
+        <div class="layout-cliente">
+          <h2 id="titulo-form">Novo cliente</h2>
+          <p>Ao clicar em editar, este painel carrega os dados do cliente.</p>
 
-            <form id="formulario">
-              <label for="nome">Nome completo</label>
-              <input
-                type="text"
-                id="nomeInput"
-                placeholder="Ex: Ana Beatriz Souza"
-              />
-              <small id="erro-nome" class="erro"></small>
+          <form id="formulario">
+            <label for="nome">Nome completo</label>
+            <input
+              type="text"
+              id="nomeInput"
+              placeholder="Ex: Ana Beatriz Souza"
+            />
+            <small id="erro-nome" class="erro"></small>
 
-              <label for="email">E-mail</label>
-              <input
-                type="email"
-                name="email"
-                id="emailInput"
-                placeholder="nome@empresa.com.br"
-              />
-              <small id="erro-email" class="erro"></small>
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              name="email"
+              id="emailInput"
+              placeholder="nome@empresa.com.br"
+            />
+            <small id="erro-email" class="erro"></small>
 
-              <div class="labels">
-                <div class="tel">
-                  <label for="telefone">Telefone</label>
-                  <input
-                    type="tel"
-                    name="telefone"
-                    id="telefoneInput"
-                    placeholder="(00) 00000-0000"
-                  />
-                  <small id="erro-telefone" class="erro"></small>
-                </div>
-
-                <div class="cpf">
-                  <label for="cpf">CPF / CNPJ</label>
-                  <input
-                    type="text"
-                    name="cpf"
-                    id="cpfInput"
-                    placeholder="000.000.000-00"
-                  />
-                  <small id="erro-cpf" class="erro"></small>
-                </div>
+            <div class="labels">
+              <div class="tel">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="tel"
+                  name="telefone"
+                  id="telefoneInput"
+                  placeholder="(00) 00000-0000"
+                />
+                <small id="erro-telefone" class="erro"></small>
               </div>
 
-              <label for="empresa">Empresa</label>
-              <input
-                type="text"
-                name="empresa"
-                id="empresaInput"
-                placeholder="Nome da empresa (opcional)"
-              />
+              <div class="cpf">
+                <label for="cpf">CPF / CNPJ</label>
+                <input
+                  type="text"
+                  name="cpf"
+                  id="cpfInput"
+                  placeholder="000.000.000-00"
+                />
+                <small id="erro-cpf" class="erro"></small>
+              </div>
+            </div>
 
-              <div class="labels">
-                <div class="cidade">
-                  <label for="cidade">Cidade</label>
-                  <input
-                    type="text"
-                    name="cidade"
-                    id="cidadeInput"
-                    placeholder="Cidade"
-                  />
-                  <small id="erro-cidade" class="erro"></small>
-                </div>
+            <label for="empresa">Empresa</label>
+            <input
+              type="text"
+              name="empresa"
+              id="empresaInput"
+              placeholder="Nome da empresa (opcional)"
+            />
 
-                <div class="status">
-                  <label for="status">Status</label>
-                  <select class="options-status" id="statusInput">
-                    <option value="ativo">Ativo</option>
-                    <option value="inativo">Inativo</option>
-                    <option value="pendente">Pendente</option>
-                  </select>
-                </div>
+            <div class="labels">
+              <div class="cidade">
+                <label for="cidade">Cidade</label>
+                <input
+                  type="text"
+                  name="cidade"
+                  id="cidadeInput"
+                  placeholder="Cidade"
+                />
+                <small id="erro-cidade" class="erro"></small>
               </div>
 
-              <label for="observacoes">Observacoes:</label>
-              <textarea
-                name="observacoes"
-                id="observacoesInput"
-                rows="3"
-                placeholder="Anotações internas sobre o cliente"
-              >
-              </textarea>
-
-              <div class="btn-form">
-                <button id="btn-cancelar" type="button">Cancelar</button>
-                <button id="btn-salvar" type="submit">Salvar cliente</button>
+              <div class="status">
+                <label for="status">Status</label>
+                <select class="options-status" id="statusInput">
+                  <option value="ativo">Ativo</option>
+                  <option value="inativo">Inativo</option>
+                  <option value="pendente">Pendente</option>
+                </select>
               </div>
-            </form>
-          </div>
+            </div>
+
+            <label for="observacoes">Observacoes:</label>
+            <textarea
+              name="observacoes"
+              id="observacoesInput"
+              rows="5"
+              placeholder="Anotações internas sobre o cliente"
+            >
+            </textarea>
+
+            <div class="btn-form">
+              <button id="btn-cancelar" type="button">Cancelar</button>
+              <button id="btn-salvar" type="submit">Salvar cliente</button>
+            </div>
+          </form>
         </div>
       </main>
     </div>
