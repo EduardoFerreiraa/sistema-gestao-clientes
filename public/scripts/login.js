@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://sistema-gestao-clientes.onrender.com";
 
 const formLogin = document.querySelector("#form");
 const emailInput = document.querySelector("#emailInput");
