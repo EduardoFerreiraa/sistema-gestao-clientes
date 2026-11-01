@@ -241,7 +241,6 @@ p.navegacao-title {
 }
 
 .info-table {
-  margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -277,7 +276,7 @@ p.card-count {
 
 .novo-cliente {
   display: flex;
-  gap: 15px;
+  gap: 10px;
 }
 
 .novo-cliente button {
