@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 // importando rotas
 const clienteRoutes = require("./routes/clienteRoutes");
+const usuarioRoutes = require("./routes/usuarioRoutes");
 
 app.use(
   cors({
@@ -18,6 +19,7 @@ app.use(
 app.use(express.json());
 
 app.use("/clientes", clienteRoutes);
+app.use("/usuarios", usuarioRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta: ${PORT}`);

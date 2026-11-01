@@ -4,9 +4,12 @@
 
 Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exclusão de clientes. O projeto foi construído com o objetivo de praticar a integração entre Frontend e Backend, utilizando arquitetura desacoplada (API REST).
 
-## Release: v1.1.0
+## Release: v2.0.0
 
-Adiciona busca e filtro de status com debounce 
+- Criação das telas de Login e Cadastro de usuários.
+- Integração do Frontend com a API de autenticação.
+- Armazenamento seguro do Token JWT no `localStorage`.
+- Proteção de todas as rotas do sistema no Backend com o `AuthMiddleware`.
 
 ## Arquitetura e Refatoração
 

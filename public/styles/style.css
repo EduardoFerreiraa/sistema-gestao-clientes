@@ -310,12 +310,12 @@ body {
 
 .thead th {
   font-weight: 500;
-  padding: 12px;
+  padding: 15px;
   text-transform: uppercase;
   color: rgb(97, 97, 97);
   font-size: 14px;
   line-height: 1.2;
-  text-align: center;
+  text-align: left;
 }
 
 .tbody td {
@@ -323,6 +323,11 @@ body {
   color: rgb(40, 40, 40);
   font-size: 15px;
   border-bottom: 1px solid #e5e7eb;
+}
+
+.thead th:last-child,
+.body td:last-child {
+  text-align: center;
 }
 
 .layout-cliente {

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="styles/login.css" />
+    <link
+      rel="shortcut icon"
+      href="img/favicon-cadastro/favicon-32x32.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <main class="login-container">
+      <div class="login-form">
+        <img class="logo" src="img/logo-cadastro.png" alt="Logo Login" />
+        <h1 class="login-title">Crie sua conta</h1>
+        <p class="login-descricao">
+          Preencha os dados para começar a usar o sistema.
+        </p>
+        <form id="form">
+          <label for="nome" class="label">Nome completo</label>
+          <input
+            type="text"
+            name="nome"
+            id="nomeInput"
+            class="input"
+            placeholder="Seu nome"
+          />
+          <small id="erro-nome" class="erro"></small>
+
+          <label for="e-mail" class="label">E-mail</label>
+          <input
+            type="email"
+            name="e-mail"
+            id="emailInput"
+            class="input"
+            placeholder="seu@email.com"
+          />
+          <small id="erro-email" class="erro"></small>
+
+          <label for="senha" class="label">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            id="senhaInput"
+            class="input"
+            placeholder="Sua senha"
+          />
+          <small id="erro-senha" class="erro"></small>
+
+          <label for="confirmarSenha" class="label">Confirmar senha</label>
+          <input
+            type="password"
+            name="confirmarSenha"
+            id="confirmarSenhaInput"
+            class="input"
+            placeholder="Repita a senha"
+          />
+          <small id="erro-confirmarSenha" class="erro"></small>
+
+          <button class="btn-login">Criar conta</button>
+
+          <p class="conta">
+            Já tem uma conta? <a href="login.html" class="conta-link">Login</a>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <script src="scripts/cadastro.js"></script>
+  </body>
+</html>
