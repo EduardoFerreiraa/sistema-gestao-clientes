@@ -30,6 +30,13 @@ const erroTelefone = document.querySelector("#erro-telefone");
 const erroCpf = document.querySelector("#erro-cpf");
 const erroCidade = document.querySelector("#erro-cidade");
 
+const countTotal = document.querySelector("#count-totalClientes");
+const countAtivos = document.querySelector("#count-ativos");
+const countPendentes = document.querySelector("#count-pendentes");
+const countInativos = document.querySelector("#count-inativos");
+
+const btnLimparFiltros = document.querySelector(".limpar-filtros");
+
 const formulario = document.querySelector("#formulario");
 
 let clienteEditandoId = null;
@@ -108,6 +115,15 @@ async function listarClientes() {
   });
 
   const clientes = await resposta.json();
+
+  const ativos = clientes.filter((c) => c.status === "Ativo").length;
+  const pendentes = clientes.filter((c) => c.status === "Pendente").length;
+  const inativos = clientes.filter((c) => c.status === "Inativo").length;
+
+  countTotal.textContent = clientes.length;
+  countAtivos.textContent = ativos;
+  countPendentes.textContent = pendentes;
+  countInativos.textContent = inativos;
 
   tabelaClientes.innerHTML = "";
 
@@ -233,6 +249,12 @@ if (selectStatus) {
 }
 
 listarClientes();
+
+btnLimparFiltros.addEventListener("click", () => {
+  inputBusca.value = "";
+  selectStatus.value = "Todos";
+  listarClientes();
+});
 
 formulario.addEventListener("submit", async (event) => {
   event.preventDefault();
