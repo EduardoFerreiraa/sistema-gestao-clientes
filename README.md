@@ -54,7 +54,22 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🖼️ Preview do Projeto
 
-<img width="1919" height="995" alt="image" src="https://github.com/user-attachments/assets/c74c9e7c-720c-43aa-b8fd-5d115b229339" />
+### Cadastro
+- Crie uma nova conta se você não tiver.
+<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/179e9873-bc58-4935-a07c-93301d3887f1" />
+
+### Login
+- Faça o Login se você já tem uma conta.
+<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/665a3397-f792-49ef-a9cc-4bd836a94118" />
+
+### Sistema de Gestão de Clientes
+- Quando você fizer o login, você será direcionado direto para essa tela.
+<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/b48e00e4-220b-40c0-8473-7504c268c7a5" />
+
+### Clicando em "+ Novo cliente"
+- Quando você clicar em "Novo cliente", irá aparecer o formulário para preencher os dados do seu cliente.
+<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/8a0c9c65-ef21-4f15-87ea-c123fe3f902a" />
+
 
 ## 🔧 Como rodar o projeto localmente
 
