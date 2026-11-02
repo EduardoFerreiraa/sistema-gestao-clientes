@@ -82,17 +82,55 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 35px;
+  transition: all 0.2s ease;
 }
 
-.sidebar-content {
-  width: 100%;
+.sidebar-back {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sidebar.recolhida h2,
+.sidebar.recolhida .nav-text,
+.sidebar.recolhida .sua-conta {
+  display: none;
+}
+
+.sidebar.recolhida .sidebar-nav a {
+  padding: 15px;
+}
+
+.sidebar.recolhida {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  width: 100px;
 }
 
 .sidebar h2 {
   margin-top: 10px;
   color: white;
   font-size: 1.5em;
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+#back {
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 17px;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bolder;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #152227;
+}
+
+#back:hover {
+  background-color: white;
+  color: black;
 }
 
 .sidebar-nav {

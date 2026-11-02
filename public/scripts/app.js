@@ -37,6 +37,16 @@ const countInativos = document.querySelector("#count-inativos");
 
 const btnLimparFiltros = document.querySelector(".limpar-filtros");
 
+const btnBack = document.querySelector("#back");
+const divSidebarBack = document.querySelector(".sidebar-back");
+const sidebarTitulo = document.querySelector("#sidebar-titulo");
+const sidebarPainel = document.querySelector("#sidebar-painel");
+const sidebarClientes = document.querySelector("#sidebar-clientes");
+const sidebarPropostas = document.querySelector("#sidebar-propostas");
+const sidebarRelatorios = document.querySelector("#sidebar-relatorios");
+const sidebarConfiguracoes = document.querySelector("#sidebar-configuracoes");
+const sidebarLayout = document.querySelector(".sidebar");
+
 const formulario = document.querySelector("#formulario");
 
 let clienteEditandoId = null;
@@ -254,6 +264,17 @@ btnLimparFiltros.addEventListener("click", () => {
   inputBusca.value = "";
   selectStatus.value = "Todos";
   listarClientes();
+});
+
+btnBack.addEventListener("click", () => {
+  sidebarLayout.classList.toggle("recolhida");
+  const estaRecolhida = sidebarLayout.classList.contains("recolhida");
+
+  if (estaRecolhida) {
+    btnBack.textContent = "⭢";
+  } else {
+    btnBack.textContent = "⭠";
+  }
 });
 
 formulario.addEventListener("submit", async (event) => {
