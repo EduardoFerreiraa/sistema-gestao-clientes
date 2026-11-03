@@ -4,7 +4,7 @@
 
 Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exclusão de clientes. O projeto foi construído com o objetivo de praticar a integração entre Frontend e Backend, utilizando arquitetura desacoplada (API REST).
 
-## Release: v2.1.0
+## Release: v2.2.0
 
 - Criação das telas de Login e Cadastro de usuários.
 - Integração do Frontend com a API de autenticação.
@@ -12,6 +12,9 @@ Um sistema web Full Stack desenvolvido para o cadastro, listagem, edição e exc
 - Proteção de todas as rotas do sistema no Backend com o `AuthMiddleware`.
 - Logo e ícones criados, status criado com: Total de clientes, Ativos, Pendentes e Inativos (frontend).
 - Design do sistema melhorado.
+- Implementado Dark Mode, menu colapsável e melhorias de UI/UX
+- Novos ícones
+- Refatoração CSS
 
 ## Arquitetura e Refatoração
 
