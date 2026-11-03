@@ -47,9 +47,31 @@ const sidebarRelatorios = document.querySelector("#sidebar-relatorios");
 const sidebarConfiguracoes = document.querySelector("#sidebar-configuracoes");
 const sidebarLayout = document.querySelector(".sidebar");
 
+const btnClaro = document.querySelector("#btnClaro");
+const btnEscuro = document.querySelector("#btnEscuro");
+const html = document.documentElement;
+
 const formulario = document.querySelector("#formulario");
 
 let clienteEditandoId = null;
+
+function aplicarTema(tema) {
+  html.setAttribute("data-theme", tema);
+  localStorage.setItem("tema", tema);
+}
+
+const temaSalvo = localStorage.getItem("tema");
+if (temaSalvo) {
+  aplicarTema(temaSalvo);
+}
+
+if (btnClaro) {
+  btnClaro.addEventListener("click", () => aplicarTema("light"));
+}
+
+if (btnEscuro) {
+  btnEscuro.addEventListener("click", () => aplicarTema("dark"));
+}
 
 function limparFormulario() {
   const campos = [
