@@ -37,9 +37,41 @@ const countInativos = document.querySelector("#count-inativos");
 
 const btnLimparFiltros = document.querySelector(".limpar-filtros");
 
+const btnBack = document.querySelector("#back");
+const divSidebarBack = document.querySelector(".sidebar-back");
+const sidebarTitulo = document.querySelector("#sidebar-titulo");
+const sidebarPainel = document.querySelector("#sidebar-painel");
+const sidebarClientes = document.querySelector("#sidebar-clientes");
+const sidebarPropostas = document.querySelector("#sidebar-propostas");
+const sidebarRelatorios = document.querySelector("#sidebar-relatorios");
+const sidebarConfiguracoes = document.querySelector("#sidebar-configuracoes");
+const sidebarLayout = document.querySelector(".sidebar");
+
+const btnClaro = document.querySelector("#btnClaro");
+const btnEscuro = document.querySelector("#btnEscuro");
+const html = document.documentElement;
+
 const formulario = document.querySelector("#formulario");
 
 let clienteEditandoId = null;
+
+function aplicarTema(tema) {
+  html.setAttribute("data-theme", tema);
+  localStorage.setItem("tema", tema);
+}
+
+const temaSalvo = localStorage.getItem("tema");
+if (temaSalvo) {
+  aplicarTema(temaSalvo);
+}
+
+if (btnClaro) {
+  btnClaro.addEventListener("click", () => aplicarTema("light"));
+}
+
+if (btnEscuro) {
+  btnEscuro.addEventListener("click", () => aplicarTema("dark"));
+}
 
 function limparFormulario() {
   const campos = [
@@ -254,6 +286,17 @@ btnLimparFiltros.addEventListener("click", () => {
   inputBusca.value = "";
   selectStatus.value = "Todos";
   listarClientes();
+});
+
+btnBack.addEventListener("click", () => {
+  sidebarLayout.classList.toggle("recolhida");
+  const estaRecolhida = sidebarLayout.classList.contains("recolhida");
+
+  if (estaRecolhida) {
+    btnBack.textContent = "⭢";
+  } else {
+    btnBack.textContent = "⭠";
+  }
 });
 
 formulario.addEventListener("submit", async (event) => {

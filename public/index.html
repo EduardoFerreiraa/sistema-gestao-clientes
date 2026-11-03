@@ -18,35 +18,55 @@
         <h1>Gestão de Clientes</h1>
       </div>
       <div class="admin-button">
-        <img src="#" alt="" />
-        <button>Administrador <span>⌄</span></button>
+        <div class="theme">
+          <div class="theme-button">
+            <button id="btnClaro">
+              <img src="img/sun.png" alt="Logo Sun" />Claro
+            </button>
+          </div>
+          <div class="theme-button">
+            <button id="btnEscuro">
+              <img src="img/moon.png" alt="Logo Moon" />
+              Escuro
+            </button>
+          </div>
+        </div>
+        <div>
+          <button class="header-admin">
+            <p>Ad</p>
+            Administrador <span>⌄</span>
+          </button>
+        </div>
       </div>
     </header>
 
     <div class="layout">
       <aside class="sidebar">
         <div class="sidebar-content">
-          <h2>Carteira</h2>
+          <div class="sidebar-back">
+            <h2 id="sidebar-titulo">Carteira</h2>
+            <button id="back">⭠</button>
+          </div>
           <nav class="sidebar-nav">
-            <a href="#" class="ativo">
+            <a id="sidebar-painel" href="index.html" class="ativo">
               <i data-lucide="layout-dashboard"></i>
-              Painel
+              <span class="nav-text">Painel</span>
             </a>
-            <a href="#">
+            <a id="sidebar-clientes" href="#">
               <i data-lucide="users"></i>
-              Clientes
+              <span class="nav-text">Clientes</span>
             </a>
-            <a href="#">
+            <a id="sidebar-propostas" href="#">
               <i data-lucide="file-text"></i>
-              Propostas
+              <span class="nav-text">Propostas</span>
             </a>
-            <a href="#">
+            <a id="sidebar-relatorios" href="#">
               <i data-lucide="bar-chart-2"></i>
-              Relatórios
+              <span class="nav-text">Relatórios</span>
             </a>
-            <a href="#">
+            <a id="sidebar-configuracoes" href="#">
               <i data-lucide="settings"></i>
-              Configurações
+              <span class="nav-text">Configurações</span>
             </a>
           </nav>
         </div>

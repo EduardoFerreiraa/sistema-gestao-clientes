@@ -1,5 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
+/* TEMA CLARO */
+:root {
+  --bg-main: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-sidebar: #ffffff;
+
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+
+  --border-color: #e5e7eb;
+  --hover-bg: #ececec;
+}
+
+/* TEMA ESCURO */
+[data-theme="dark"] {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-sidebar: #0b1120;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --border-color: #334155;
+  --hover-bg: #334155;
+}
+
 :root {
   --borda-clara: #d3d3d3;
   --btn-clara: #008f8c;
@@ -14,13 +40,18 @@
 
 html,
 body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
   min-height: 100%;
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 /* Header */
 .header {
-  border-bottom: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,29 +69,88 @@ body {
 
 .logo > h1 {
   font-weight: 600;
-  color: rgb(20, 20, 20);
+  color: var(--text-main);
   font-size: 1.4em;
 }
 
 .admin-button button {
+  font-weight: 400;
   border-radius: 10px;
-  padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
   background: none;
   border: none;
-  border: 1px solid #d3d3d3;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
   transition: all 0.2s ease;
 }
 
+button.header-admin p {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding: 8px;
+  font-size: 13px;
+  background-color: #008f8c;
+  border-radius: 50%;
+}
+
+button.header-admin {
+  height: 45px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  gap: 10px;
+}
+
 .admin-button button span {
+  font-weight: bolder;
   position: relative;
-  top: -5px;
+  top: -7px;
+  left: 0;
 }
 
 .admin-button button:hover {
   box-shadow: 1px 1px 1px 5px #cfcfcf44;
   border: 1px solid #838383;
+}
+
+.theme {
+  height: 45px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.theme > div > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+}
+
+.theme-button > button > img {
+  width: 18px;
+}
+
+.theme button {
+  color: var(--text-main);
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.theme button:hover {
+  border: 1px solid transparent;
+  color: #008f8c;
+  box-shadow: none;
 }
 
 /* sidebar */
@@ -76,23 +166,60 @@ body {
   height: 100%;
   min-height: calc(100vh - 60px);
   padding: 15px;
-  background-color: #152227;
+  background-color: var(--bg-sidebar);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 35px;
+  transition: all 0.2s ease;
 }
 
-.sidebar-content {
-  width: 100%;
+.sidebar-back {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sidebar.recolhida h2,
+.sidebar.recolhida .nav-text,
+.sidebar.recolhida .sua-conta {
+  display: none;
+}
+
+.sidebar.recolhida .sidebar-nav a {
+  padding: 15px;
+}
+
+.sidebar.recolhida {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  width: 100px;
 }
 
 .sidebar h2 {
   margin-top: 10px;
-  color: white;
+  color: var(--text-main);
   font-size: 1.5em;
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+#back {
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 17px;
+  padding: 5px 10px;
+  font-weight: bolder;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+#back:hover {
+  border: 1px solid var(--border-color);
+  background-color: var(--hover-bg);
 }
 
 .sidebar-nav {
@@ -115,15 +242,15 @@ body {
   border-radius: 10px;
   font-weight: 500;
   text-decoration: none;
-  color: white;
+  color: var(--text-main);
   border: 1px solid transparent;
   transition: all 0.25s ease;
 }
 
 .sidebar-nav a:hover {
   border: 1px solid transparent;
-  background-color: #f0f0f0;
-  color: black;
+  background-color: var(--hover-bg);
+  color: var(--text-main);
   transform: translateY(-3px);
 }
 
@@ -134,7 +261,7 @@ body {
 }
 
 .conta-admin {
-  background-color: #f0f0f0;
+  background-color: var(--hover-bg);
   border-radius: 15px;
   cursor: pointer;
   width: 100%;
@@ -149,7 +276,7 @@ body {
 }
 
 .conta-admin:hover {
-  background-color: rgb(212, 212, 212);
+  background-color: var(--hover-bg);
   transform: translateY(-3px);
 }
 
@@ -169,20 +296,20 @@ body {
 }
 
 .sua-conta h2 {
-  color: black;
+  color: var(--text-main);
   font-size: 16px;
 }
 
 .sua-conta p {
   font-size: 15px;
   margin-left: 5px;
-  color: rgb(133, 132, 132);
+  color: var(--text-muted);
 }
 
 /* main */
 .main {
   width: 100%;
-  background-color: rgb(243, 243, 243);
+  background-color: var(--bg-main);
   padding: 15px 25px;
   display: flex;
   flex-direction: row;
@@ -217,15 +344,16 @@ body {
 .navegacao a {
   font-size: 14px;
   text-decoration: none;
-  color: gray;
 }
 
-.navegacao p {
-  color: gray;
+.navegacao a,
+.navegacao p,
+#subtitle {
+  color: var(--text-muted);
 }
 
 p.navegacao-title {
-  color: rgb(30, 30, 30);
+  color: var(--text-main);
   font-size: 14px;
   font-weight: bold;
 }
@@ -237,7 +365,6 @@ p.navegacao-title {
 #subtitle {
   font-size: 18px;
   margin-top: 10px;
-  color: gray;
 }
 
 .info-table {
@@ -253,8 +380,8 @@ p.navegacao-title {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  border: 1px solid var(--borda-clara);
-  background-color: white;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
   width: 100%;
   padding: 15px;
   border-radius: 15px;
@@ -265,13 +392,13 @@ p.navegacao-title {
 }
 
 .info-card p {
-  color: gray;
+  color: var(--text-muted);
 }
 
 p.card-count {
   font-weight: bolder;
   font-size: 40px;
-  color: rgb(63, 63, 63);
+  color: var(--text-main);
 }
 
 .novo-cliente {
@@ -282,8 +409,8 @@ p.card-count {
 .novo-cliente button {
   font-size: 14px;
   cursor: pointer;
-  border: 1px solid rgb(201, 201, 201);
-  background-color: white;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
   border-radius: 10px;
   padding: 15px 25px;
   font-weight: bolder;
@@ -307,6 +434,7 @@ p.card-count {
 }
 
 .exportar-csv {
+  color: var(--text-main);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -329,9 +457,9 @@ p.card-count {
 
 .layout-table {
   width: 100%;
-  border: 1px solid var(--borda-clara);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
   border-radius: 15px;
-  background-color: #fafafa;
 }
 
 #content-filter {
@@ -354,10 +482,16 @@ p.card-count {
   left: 10px;
 }
 
+#filter-search,
+.options {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
 #filter-search {
   font-size: 14px;
   outline: none;
-  border: 1px solid #d3d3d3;
   border-radius: 10px;
   width: 100%;
   padding: 10px;
@@ -377,8 +511,6 @@ p.card-count {
 .options {
   width: 12%;
   padding: 10px;
-  background-color: #fafafa;
-  border: 1px solid #d3d3d3;
   border-radius: 10px;
   transition: all 0.25s ease;
 }
@@ -418,15 +550,15 @@ p.card-count {
 }
 
 .thead {
-  background-color: rgba(231, 231, 231, 0.589);
-  border-top: 1px solid rgb(201, 201, 201);
+  background-color: var(--hover-bg);
+  border-top: 1px solid var(--text-muted);
 }
 
 .thead th {
   font-weight: 500;
   padding: 15px;
   text-transform: uppercase;
-  color: rgb(51, 51, 51);
+  color: var(--text-main);
   font-size: 14px;
   line-height: 1.2;
   text-align: left;
@@ -434,9 +566,14 @@ p.card-count {
 
 .tbody td {
   padding: 8px 15px;
-  color: rgb(40, 40, 40);
+  color: var(--text-main);
   font-size: 15px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tbody tr:hover {
+  background-color: var(--hover-bg);
+  transition: background-color 0.2s;
 }
 
 .thead th:last-child,
@@ -446,9 +583,9 @@ p.card-count {
 
 .layout-cliente {
   height: 100%;
-  border: 1px solid var(--borda-clara);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
   border-radius: 15px;
-  background-color: #fafafa;
   padding: 25px;
   gap: 5px;
   opacity: 0;
@@ -469,11 +606,12 @@ p.card-count {
 }
 
 .layout-cliente h2 {
+  color: var(--text-main);
   font-size: 20px;
 }
 
 .layout-cliente p {
-  color: rgb(104, 104, 104);
+  color: var(--text-main);
   font-size: 15px;
 }
 
@@ -496,12 +634,29 @@ p.card-count {
   display: block;
 }
 
+#formulario input,
+.labels input,
+.options-status,
+textarea {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-form button,
+.btn-editar,
+.btn-editar {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
 #formulario input {
   font-size: 15px;
   outline: none;
   width: 100%;
   padding: 10px;
-  border: 1px solid var(--borda-clara);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
@@ -538,8 +693,6 @@ p.card-count {
   height: 42px;
   padding: 10px;
   box-sizing: border-box;
-  background-color: #fafafa;
-  border: 1px solid var(--borda-clara);
   border-radius: 10px;
 }
 
@@ -563,7 +716,7 @@ textarea {
   resize: none;
   width: 100%;
   padding: 10px;
-  border: 1px solid var(--borda-clara);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
@@ -590,8 +743,9 @@ textarea:focus {
   font-size: 15px;
   font-weight: bolder;
   cursor: pointer;
-  background-color: white;
-  border: 1px solid var(--borda-clara);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
   border-radius: 10px;
   padding: 12px;
   transition: all 0.2s ease;
@@ -636,7 +790,7 @@ small {
 
 #lista-clientes > tr > td {
   font-size: 13.5px;
-  color: #242e3b;
+  color: var(--text-main);
 }
 
 .acoes {
@@ -651,14 +805,18 @@ small {
   cursor: pointer;
   border-radius: 10px;
   padding: 8px;
-  color: black;
-  border: 1px solid gray;
-  background-color: white;
   transition: all 0.2s ease;
 }
 
 .btn-editar:hover {
-  box-shadow: 1px 1px 2px 3px rgba(179, 179, 179, 0.534);
+  border: 1px solid gray;
+}
+
+.btn-editar,
+.btn-cancelar {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
 }
 
 .btn-excluir {
@@ -666,19 +824,19 @@ small {
   cursor: pointer;
   border-radius: 10px;
   padding: 8px;
-  color: red;
-  background-color: white;
-  border: 1px solid red;
+  color: rgb(255, 59, 59);
+  background-color: var(--bg-card);
+  border: 1px solid rgb(255, 140, 140);
   transition: all 0.2s ease;
 }
 
 .btn-excluir:hover {
-  box-shadow: 1px 1px 2px 3px rgba(255, 95, 95, 0.301);
+  border: 1px solid rgb(255, 43, 43);
 }
 
 .cliente-nome {
   font-weight: bolder;
-  color: black;
+  color: var(--text-main);
 }
 .cliente-status {
   border: 1px solid red;
